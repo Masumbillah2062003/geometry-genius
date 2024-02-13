@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-5">
+    <header class="lg:container mx-auto flex items-center w-full lg:w-11/12 bg-[#94d3f87b] px-5 mt-5 rounded-lg">
+        <div class="flex-1">
+            <h1 class="lg:text-4xl text-2xl font-bold">Interactive </h1>
+            <p class="lg:text-2xl font-medium text-neutral-600">Geometry Genius</p>
+        </div>
+        <div>
+            <button class="btn btn-primary text-white">Blog</button>
+        </div>
+    </header>
+    <main class="lg:container mx-auto lg:w-11/12 mt-10 flex">
+        <div class="flex-1 grid lg:grid-cols-2">
+            <div class="card max-w-[460px] bg-base-100 shadow-xl border-2">
+                <figure class="px-12 pt-12"><img src="images/triangle.png" alt="triangle" class="w-full"/></figure>
+                <div class="card-body text-center">
+                    <h2 class="text-3xl font-bold">Triangle</h2>
+                    <p>Area (A) = 0.5 X b X h</p>
+                    <div>
+                        <input id="triangle-base" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="b">
+                        <span class="mr-2">cm</span>
+                        <input id="triangle-height" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="h">
+                        <span class="mr-2">cm</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold">Area : <span id="area-span">0</span> cm<sup>2</sup></p>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <button id="btn-triangle" class="btn btn-primary w-full text-white">Calculate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card max-w-[460px] bg-base-100 shadow-xl border-2">
+                <figure class="px-12 pt-12"><img src="images/rectangle.png" alt="triangle" class="w-full"/></figure>
+                <div class="card-body text-center">
+                    <h2 class="text-3xl font-bold">Rectangle</h2>
+                    <p>Area (A) = W X I</p>
+                    <div>
+                        <input id="rectangle-width" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="W">
+                        <span class="mr-2">cm</span>
+                        <input id="reactangle-height" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="I">
+                        <span class="mr-2">cm</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold">Area : <span id="rectangle-area-span">0</span> cm<sup>2</sup></p>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <button onclick="rectAngleBtn()" class="btn btn-primary w-full text-white">Calculate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card max-w-[460px] bg-base-100 shadow-xl border-2">
+                <figure class="px-12 pt-12"><img src="images/parallelogram.png" alt="triangle" class="w-full"/></figure>
+                <div class="card-body text-center">
+                    <h2 class="text-3xl font-bold">Parallelogram</h2>
+                    <p>Area (A) = b X h</p>
+                    <div>
+                        <input id="parallelogram-base" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="b">
+                        <span class="mr-2">cm</span>
+                        <input id="parallelogram-height" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="h">
+                        <span class="mr-2">cm</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold">Area : <span id="parallelogram-area-span">0</span> cm<sup>2</sup></p>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <button onclick="parallelogramFunction()" class="btn btn-primary w-full text-white">Calculate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card max-w-[460px] bg-base-100 shadow-xl border-2">
+                <figure class="px-12 pt-12"><img src="images/rhombus.png" alt="triangle" class="w-full"/></figure>
+                <div class="card-body text-center">
+                    <h2 class="text-3xl font-bold">Rhombus</h2>
+                    <p>Area (A) = 0.5 X d<sub>1</sub> X d<sub>2</sub></p>
+                    <div>
+                        <input id="rhombus-d1" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="d1">
+                        <span class="mr-2">cm</span>
+                        <input id="rhombus-d2" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="d2">
+                        <span class="mr-2">cm</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold">Area : <span id="rhombus-area-span">0</span> cm<sup>2</sup></p>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <button onclick="rhombusFunction()" class="btn btn-primary w-full text-white">Calculate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card max-w-[460px] bg-base-100 shadow-xl border-2">
+                <figure class="px-12 pt-12"><img src="images/pentagon.png" alt="triangle" class="w-full"/></figure>
+                <div class="card-body text-center">
+                    <h2 class="text-3xl font-bold">Pentagon</h2>
+                    <p>Area (A) = 0.5 X p X b</p>
+                    <div>
+                        <input id="pentagon-p" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="p">
+                        <span class="mr-2">cm</span>
+                        <input id="pentagon-b" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="b">
+                        <span class="mr-2">cm</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold">Area : <span id="pentagon-area-span">0</span> cm<sup>2</sup></p>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <button onclick="pentagonFunction()" class="btn btn-primary w-full text-white">Calculate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card max-w-[460px] bg-base-100 shadow-xl border-2">
+                <figure class="px-12 pt-12"><img src="images/ellipse.png" alt="triangle" class="w-full"/></figure>
+                <div class="card-body text-center">
+                    <h2 class="text-3xl font-bold">Ellipse</h2>
+                    <p>Area (A) = πab</p>
+                    <div>
+                        <input id="ellipse-a" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="b">
+                        <span class="mr-2">cm</span>
+                        <input id="ellipse-b" type="text" class="w-24 h-8 border border-neutral-500 rounded-md p-2 mr-2" placeholder="h">
+                        <span class="mr-2">cm</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-semibold">Area : <span id="ellipse-area-span">0</span> cm<sup>2</sup></p>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <button id="btn-ellipse" class="btn btn-primary w-full text-white">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:block lg:block border-2 max-w-[430px] h-[455px] rounded-md p-6 text-center ">
+            <p class="font-semibold text-xl  border-b-4 border-black w-40 mx-auto">Area Calculation</p>
+
+            <div class="text-6xl mt-40"><span id="area-result">0</span> cm<sup>2</sup></div>
+        </div>
+    </main>
+
+    <!-- JavaScript start -->
+    <script src="scripts/triangle.js"></script>
+    <script src="scripts/rectangle.js"></script>
+
+
+    <script src="scripts/deafult.js"></script>
+
+    <script src="scripts/parallelogram.js"></script>
+    <script src="scripts/rhombus.js"></script>
+    <script src="scripts/pentagon.js"></script>
+    <script src="scripts/ellipse.js"></script>
+</body>
+</html>
